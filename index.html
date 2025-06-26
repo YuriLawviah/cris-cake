@@ -275,6 +275,78 @@
         </div>
     </section>
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cris Cake - Encomendas</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-pink-50 font-sans text-gray-800">
+
+  <div class="max-w-xl mx-auto p-6 mt-10 bg-white rounded-lg shadow-md">
+    <h1 class="text-3xl font-bold text-center text-pink-600 mb-6">Cris Cake 🍰</h1>
+    <p class="text-center mb-4">Escolha o sabor e o tamanho do seu bolo e envie diretamente pelo WhatsApp!</p>
+
+    <!-- Formulário -->
+    <div class="space-y-4">
+      <!-- Sabores -->
+      <div>
+        <label class="block mb-2 font-semibold">Selecione o sabor:</label>
+        <select id="sabor" class="w-full border border-gray-300 rounded px-4 py-2">
+          <option value="" disabled selected>-- Escolha um sabor --</option>
+          <option>Ninho</option>
+          <option>Ninho com Morango</option>
+          <option>Brigadeiro</option>
+          <option>Brigadeiro Trufado</option>
+          <option>Mousse de Maracujá</option>
+          <option>Mousse de Morango</option>
+          <option>Paçoca</option>
+          <option>Beijinho de Coco</option>
+        </select>
+      </div>
+
+      <!-- Tamanhos -->
+      <div>
+        <label class="block mb-2 font-semibold">Selecione o tamanho:</label>
+        <select id="tamanho" class="w-full border border-gray-300 rounded px-4 py-2">
+          <option value="" disabled selected>-- Escolha o tamanho --</option>
+          <option>10 fatias - R$ 100,00</option>
+          <option>15 fatias - R$ 130,00</option>
+          <option>18 fatias - R$ 140,00</option>
+          <option>20 fatias - R$ 160,00</option>
+          <option>25 fatias - R$ 250,00</option>
+          <option>30 fatias - R$ 300,00</option>
+          <option>35 fatias - R$ 350,00</option>
+        </select>
+      </div>
+
+      <!-- Botão -->
+      <div class="text-center">
+        <button onclick="enviarPedido()" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-full mt-4">
+          Fazer Pedido via WhatsApp
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function enviarPedido() {
+      const sabor = document.getElementById('sabor').value;
+      const tamanho = document.getElementById('tamanho').value;
+
+      if (!sabor || !tamanho) {
+        alert("Por favor, selecione o sabor e o tamanho.");
+        return;
+      }
+
+      const mensagem = `Olá, gostaria de encomendar um bolo sabor *${sabor}* com *${tamanho}*.`;
+      const url = "https://wa.me/5522992907941?text=" + encodeURIComponent(mensagem);
+      window.open(url, "_blank");
+    }
+  </script>
+
+</body>
+</html>
     <!-- Important Info -->
     <section id="info" class="py-16 bg-pink-50 fade-in">
         <div class="container mx-auto px-6">
